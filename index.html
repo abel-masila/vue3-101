@@ -10,7 +10,21 @@
   </head>
   <body>
     <div id="app">
-      <h1>{{ product }}</h1>
+      <div class="nav-bar"></div>
+
+      <div class="product-display">
+        <div class="product-container">
+          <div class="product-image">
+            <img :src="image" alt="item image" />
+          </div>
+          <div class="product-info">
+            <h1>{{ product }}</h1>
+            <p v-if="inventory > 10">In stock</p>
+            <p v-else-if="inventory <= 10 && inventory > 0">Almost sold out</p>
+            <p v-else="inventory > 10">Out stock</p>
+          </div>
+        </div>
+      </div>
     </div>
 
     <!-- Import App-->
