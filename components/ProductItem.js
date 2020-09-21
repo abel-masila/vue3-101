@@ -32,6 +32,8 @@ app.component("product-item", {
         </button>
       </div>
     </div>
+    <review-list :reviews="reviews" v-if="reviews.length"> </review-list>
+    <review-form @review-submitted="addReview"></review-form>
   </div>`,
   props: {
     premium: {
@@ -61,6 +63,7 @@ app.component("product-item", {
           qty: 0,
         },
       ],
+      reviews: [],
     };
   },
   methods: {
@@ -69,6 +72,9 @@ app.component("product-item", {
     },
     updateVariant(index) {
       this.selectedVariant = index;
+    },
+    addReview(review) {
+      this.reviews.push(review);
     },
   },
   computed: {
