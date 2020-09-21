@@ -12,15 +12,17 @@
     <div id="app">
       <div class="nav-bar"></div>
 
-      <div class="cart">Cart({{ cart }})</div>
-      <product-item :premium="premium"></product-item>
+      <div class="cart">Cart({{ cart.length }})</div>
+      <product-item :premium="premium" @add-to-cart="updateCart"></product-item>
+      <review-form></review-form>
     </div>
 
     <!-- Import App-->
     <script src="./main.js"></script>
     <!-- Mount App -->
-    <!-- Component -->
+    <!-- Components -->
     <script src="./components/ProductItem.js"></script>
+    <script src="./components/ReviewForm.js"></script>
     <script>
       const mountedApp = app.mount("#app");
     </script>
